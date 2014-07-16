@@ -4,11 +4,11 @@ Host *
 
 Host ghc
 Hostname ghc11.ghc.andrew.cmu.edu
-user Gdellasi
+user gdellasi
 
 
 Host andrew
 Hostname unix.andrew.cmu.edu
 user gdellasi
 GSSAPIAuthentication yes
-GSSAPIDelegateCreditals yes
+GSSAPIDelegateCredentials yes
