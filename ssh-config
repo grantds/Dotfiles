@@ -1,0 +1,14 @@
+Host *
+    ControlMaster auto
+    Controlpath ~/.ssh/master-%r@%h:%p
+
+Host ghc
+Hostname ghc11.ghc.andrew.cmu.edu
+user Gdellasi
+
+
+Host andrew
+Hostname unix.andrew.cmu.edu
+user gdellasi
+GSSAPIAuthentication yes
+GSSAPIDelegateCreditals yes
