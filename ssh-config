@@ -6,6 +6,8 @@ Host ghc
 Hostname ghc11.ghc.andrew.cmu.edu
 user gdellasi
 
+ForwardX11 yes
+
 
 Host andrew
 Hostname unix.andrew.cmu.edu

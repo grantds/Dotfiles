@@ -1,5 +1,12 @@
 source ~/.bashrc_gpi
 
+# add home/bin to path
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+  fi
+
+export PATH=~/bin/cc0-install/bin:$PATH
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -45,7 +52,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -95,6 +102,12 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+alias sml='rlwrap sml'
+alias ocaml='rlwrap ocaml'
+alias ghci='rlwrap ghci'
+alias open='xdg-open &>/dev/null'
+alias ec='emacsclient -n'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -115,4 +128,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export EDITOR=/usr/bin/vim
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -c &'
+
+# OPAM configuration
+. /home/grantds/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+eval `opam config env`
+
