@@ -1,5 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+
 (require 'package)
   (push '("marmalade" . "http://marmalade-repo.org/packages/")
         package-archives )
@@ -14,7 +15,7 @@
  '(custom-safe-themes (quote ("e6d83e70d2955e374e821e6785cd661ec363091edf56a463d0018dc49fbc92dd" default)))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
- '(ecb-source-path (quote (("~/compilers-f14/lab2/compiler" "l2c/"))))
+ '(ecb-source-path (quote (("~/compilers-f14/lab3/compiler" "l3c/"))))
  '(ecb-tip-of-the-day nil)
  '(inhibit-startup-screen t)
  '(tool-bar-mode nil))
@@ -50,6 +51,8 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
+(scroll-bar-mode -1)
+
 (if (daemonp)
     (add-hook 'after-make-frame-functions
 	      (lambda (frame)
@@ -58,8 +61,8 @@
 
 
 ;; tabs
-(setq-default tab-width 2 indent-tabs-mode t)
-(setq indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
 
 ;; activate ecb
 (require 'ecb)
@@ -68,3 +71,7 @@
 
 (when (fboundp 'windmove-default-keybindings)
 	(windmove-default-keybindings))
+
+
+;; highlight matching parens
+(show-paren-mode 1)
