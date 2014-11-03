@@ -6,7 +6,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bashrc bashrc_gpi vimrc"
+files="bashrc bashrc_gpi bash_aliases vimrc emacs"
 
 echo -e "Creating $olddir for backups of existing dotfiles in ~ ... \n"
 mkdir -p $olddir

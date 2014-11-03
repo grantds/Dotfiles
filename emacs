@@ -75,3 +75,8 @@
 
 ;; highlight matching parens
 (show-paren-mode 1)
+
+;; column-numbers
+(column-number-mode 1)
+
+(global-auto-revert-mode 1)
