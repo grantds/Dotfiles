@@ -66,20 +66,22 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \W\a\]$PS1"
     ;;
 *)
     ;;
 esac
+
+export TERM=xterm-256color
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -128,10 +130,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export EDITOR='emacsclient -t'
-export VISUAL='emacsclient -c &'
+export EDITOR='vim'
+export VISUAL='gvim'
 
 # OPAM configuration
 . /home/grantds/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 eval `opam config env`
 
+printLine ()
+{
+  sed -n -e "$1p" "$2"
+}
+
+export GOPATH=/home/grantds/School/440/p2/15-440-p2
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin

@@ -1,5 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(require 'fullscreen)
+(global-set-key [f11] 'fullscreen-toggle)
+
+
+
 
 (require 'package)
   (push '("marmalade" . "http://marmalade-repo.org/packages/")
@@ -11,7 +16,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (deeper-blue)))
+ '(custom-enabled-themes (quote (wombat)))
  '(custom-safe-themes (quote ("e6d83e70d2955e374e821e6785cd661ec363091edf56a463d0018dc49fbc92dd" default)))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
@@ -56,8 +61,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
 	      (lambda (frame)
-		(load-theme 'deeper-blue t)))
-  (load-theme 'deeper-blue t))
+		(load-theme 'wombat t)))
+  (load-theme 'wombat t))
 
 
 ;; tabs
@@ -80,3 +85,15 @@
 (column-number-mode 1)
 
 (global-auto-revert-mode 1)
+
+
+(setenv "GOPATH" "/home/grantds/School/440/p2/15-440-p2")
+(add-to-list 'load-path "~/Misc/emacs/go-mode.el/")
+(add-to-list 'load-path "~/goprojects/src/github.com/dougm/goflymake")
+(require 'go-mode-load)
+(require 'go-flymake)
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+
+(require 'go-autocomplete)
+
