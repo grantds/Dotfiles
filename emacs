@@ -87,7 +87,7 @@
 (global-auto-revert-mode 1)
 
 
-(setenv "GOPATH" "/home/grantds/School/440/p2/15-440-p2")
+;; (setenv "GOPATH" "/home/grantds/School/440/p2/15-440-p2")
 (add-to-list 'load-path "~/Misc/emacs/go-mode.el/")
 (add-to-list 'load-path "~/goprojects/src/github.com/dougm/goflymake")
 (require 'go-mode-load)

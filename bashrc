@@ -142,6 +142,6 @@ printLine ()
   sed -n -e "$1p" "$2"
 }
 
-export GOPATH=/home/grantds/School/440/p2/15-440-p2
+export GOPATH=/home/grantds/School/440/p3
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
