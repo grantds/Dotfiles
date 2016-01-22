@@ -97,3 +97,37 @@
 
 (require 'go-autocomplete)
 
+;; stuff for rust
+(setq racer-rust-src-path "usr/local/src/rust/src")
+(setq racer-cmd "/home/grantds/.cargo/bin/racer")
+
+;; Reduce the time after which the company auto completion popup opens
+(setq company-idle-delay 0.2)
+
+;; Reduce the number of characters before company kicks in
+(setq company-minimum-prefix-length 1)
+
+;; Set path to racer binary
+(setq racer-cmd "/home/grantds/.cargo/bin/racer")
+
+;; Set path to rust src directory
+(setq racer-rust-src-path "/usr/local/src/rust/src")
+
+;; Load rust-mode when you open `.rs` files
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; Setting up configurations when you load rust-mode
+(add-hook 'racer-mode-hook #'company-mode)
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'rust-mode-hook #'flycheck-rust-setup)
+(add-hook 'rust-mode-hook #'flycheck-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+(setq company-tooltip-align-annotations t)
+
+
+;; set path to clang-format
+(setq clang-format "/usr/bin/clang-format-3.7")
+
+

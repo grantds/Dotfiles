@@ -145,3 +145,9 @@ printLine ()
 export GOPATH=/home/grantds/School/440/p3
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/grantds/.cargo/bin
+
+export RUST_SRC_PATH=/usr/local/src/rust/src
+
+alias clang-format="clang-format-3.7"
+
